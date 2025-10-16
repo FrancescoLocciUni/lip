@@ -5,7 +5,9 @@ let test_eval expr exp_result =
 
 (* ### Unit tests for task 4 *)
 
-let%test "test_eval_1" = failwith "TODO"
+let%test test_eval("false") = false;;
+let%test test_eval("true") = true;;
+let%test test_eval("if true then false else true") = false;;
 
 (* ### Unit tests for task 5 *)
 

@@ -1,5 +1,6 @@
 open Ast
 
+
 let rec string_of_boolexpr = function
     True -> "True"
   | False -> "False"
@@ -15,9 +16,9 @@ let parse (s : string) : boolExpr =
 exception NoRuleApplies
 
 let rec trace1 = function
-    If(True,e1,_) -> e1
+  | If(True,e1,_) -> e1
   | If(False,_,e2) -> e2
-  | If(_,_,_) -> failwith "TODO"
+  | If(e1,e2,e3) -> If(trace1 e1, e2, e3)
   | _ -> raise NoRuleApplies
 
 let rec trace e = try
@@ -27,6 +28,7 @@ let rec trace e = try
 
 
 let rec eval = function
-    True -> true
+  | True -> true
   | False -> false
-  | If(_,_,_) -> failwith "TODO"
+  | If(a1,a2,a3) -> if eval a1 then eval a2 else eval a3
+;;
