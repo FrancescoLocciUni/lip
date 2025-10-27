@@ -1,0 +1,36 @@
+
+creare il progetto - [sulla cartella ../nomeProgetto]:
+
+`dune init proj nomeProgetto`
+
+aggiungere `(using menhir 2.1)` a dune-project
+
+creare cartella `lib`
+
+struttura lib:
+
+lib/
+├── ast.ml         # Abstract syntax tree
+├── dune           # Dune library definition
+├── lexer.mll      # Ocamllex lexer definition
+├── main.ml        # Language semantics and utility 
+functions
+├── parser.mly     # Menhir parser definition
+
+
+buildare il progetto:
+
+`dune build`
+
+con utop:
+
+`dune utop lib`
+
+eseguire:
+
+`dune exec nomeProgetto`
+
+runnare i test:
+
+`dune test`
+
