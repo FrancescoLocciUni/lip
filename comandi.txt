@@ -1,4 +1,6 @@
 
+repository con lexer e parser: https://github.com/bitbart/lip/tree/main
+
 creare il progetto - [sulla cartella ../nomeProgetto]:
 
 `dune init proj nomeProgetto`
