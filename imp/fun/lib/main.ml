@@ -149,6 +149,7 @@ and trace1_cmd = function
     | If(e,c1,c2) -> let (e',st') = trace1_expr st e in Cmd(If(e',c1,c2),st')
     | While(e,c) -> Cmd(If(e,Seq(c,While(e,c)),Skip),st)
 
+    
 let rec sem_decl (e,l) = function
   | [] -> (e,l)
   | (IntVar x) :: ds ->
